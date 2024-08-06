@@ -36,32 +36,27 @@ int PagedArray::checkFreeFrames() {
 
 void PagedArray::loadToFrame(int frameNum, int pageNum) {
 
-    int* loadArray;
+    // Loading file
+    file.seekg(128 * pageNum * sizeof(int));
+    int buffer[128];
+    file.read((char*) &buffer, sizeof(int) * 128);
 
     switch (frameNum) {
 
         case 1:
-            loadArray = loadFromFile(pageNum);
-            frame1 = Page(loadArray, pageNum);
-            free(loadArray);
+            frame1 = Page(buffer, pageNum);
             break;
 
         case 2:
-            loadArray = loadFromFile(pageNum);
-            frame2 = Page(loadArray, pageNum);
-            free(loadArray);
+            frame2 = Page(buffer, pageNum);
             break;
 
         case 3:
-            loadArray = loadFromFile(pageNum);
-            frame3 = Page(loadArray, pageNum);
-            free(loadArray);
+            frame3 = Page(buffer, pageNum);
             break;
 
         case 4:
-            loadArray = loadFromFile(pageNum);
-            frame4 = Page(loadArray, pageNum);
-            free(loadArray);
+            frame4 = Page(buffer, pageNum);
             break;
 
         default:
