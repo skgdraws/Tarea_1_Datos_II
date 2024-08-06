@@ -30,6 +30,8 @@ private:
     int* loadFromFile(int pageNum);
     int checkFreeFrames();
     void loadToFrame(int frameNum ,int pageNum);
+    int checkIfPageLoaded(int pageNum);
+    void saveFile();
 
 public:
 

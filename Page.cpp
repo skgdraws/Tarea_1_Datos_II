@@ -7,7 +7,7 @@
 Page::Page() {
 
     isLoaded = false;
-    pageNumber = 0;
+    pageNumber = -1;
 }
 
 Page::Page(int loadedArray[], int pageNum) {

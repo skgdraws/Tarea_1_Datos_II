@@ -67,6 +67,21 @@ void PagedArray::loadToFrame(int frameNum, int pageNum) {
     }
 }
 
+int PagedArray::checkIfPageLoaded(int pageNum) {
+
+    // ACTUALLY GIVES YOU THE FUCKING NUMBER :SKULL:
+    if (frame1.getPageNum() == pageNum)
+        return 1;
+    else if (frame2.getPageNum() == pageNum)
+        return 2;
+    else if (frame3.getPageNum() == pageNum)
+        return 3;
+    else if (frame4.getPageNum() == pageNum)
+        return 4;
+    else
+        return -1;
+}
+
 PagedArray::PagedArray(const std::string &fileDir) {
 
     // Open File
@@ -90,18 +105,37 @@ int PagedArray::operator[](int index) {
     int pageNum = index / 128;
     int relativeIndex = index % 128;
 
-    // Check Free Frames
-    const int availableFrame = checkFreeFrames();
-    loadToFrame(availableFrame, pageNum);
+    int pageID = checkIfPageLoaded(pageNum);
+
+    if (pageID < 0) {
+
+        // Check Free Frames
+        const int availableFrame = checkFreeFrames();
+        loadToFrame(availableFrame, pageNum);
+    }
 
     // ACTUALLY GIVES YOU THE FUCKING NUMBER :SKULL:
     if (frame1.getPageNum() == pageNum)
-        return 1;
+        return frame1[relativeIndex];
     else if (frame2.getPageNum() == pageNum)
-        return 2;
+        return frame2[relativeIndex];
     else if (frame3.getPageNum() == pageNum)
-        return 3;
+        return frame3[relativeIndex];
     else if (frame4.getPageNum() == pageNum)
-        return 4;
+        return frame4[relativeIndex];
+
 
 }
+
+/*void PagedArray::saveFile() {
+
+    std::ofstream file(filePath, std::ios::binary);
+    if (!file) {
+
+        throw std::runtime_error("No se pudo abrir el archivo para escritura");
+    }
+
+    file.write (reinterpret_cast<const char *>(rng_array.data()), rng_array.size() * sizeof(int));
+
+    file.close();
+}*/
