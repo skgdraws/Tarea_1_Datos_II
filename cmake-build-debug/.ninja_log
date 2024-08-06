@@ -1,0 +1,20 @@
+# ninja log v6
+5	612	7446006927343069	CMakeFiles/Tarea_1_Datos_II.dir/main.cpp.obj	2003d57c605696a1
+687	795	7446006934149369	Tarea_1_Datos_II.exe	aaab01d990639750
+10	687	7446006927383106	CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj	2008c4bd829e5fca
+10	51	7446009667229990	CMakeFiles/Tarea_1_Datos_II.dir/Frame.cpp.obj	24c1f2a4e8ba6665
+5	52	7446009667189954	CMakeFiles/Tarea_1_Datos_II.dir/PagedArray.cpp.obj	c30131e1a8b406f7
+52	158	7446009667650375	Tarea_1_Datos_II.exe	5c0f730c5da760c
+6	669	7446010120341641	CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj	2008c4bd829e5fca
+669	774	7446010126977684	Tarea_1_Datos_II.exe	5c0f730c5da760c
+6	675	7446011335751790	CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj	2008c4bd829e5fca
+676	781	7446011342452947	Tarea_1_Datos_II.exe	5c0f730c5da760c
+8	683	7446019491833196	CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj	2008c4bd829e5fca
+684	790	7446019498590199	Tarea_1_Datos_II.exe	5c0f730c5da760c
+6	796	7446022574709727	CMakeFiles/Tarea_1_Datos_II.dir/main.cpp.obj	2003d57c605696a1
+12	855	7446022574759774	CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj	2008c4bd829e5fca
+855	1008	7446022583192507	Tarea_1_Datos_II.exe	5c0f730c5da760c
+5	671	7446023457925738	CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj	2008c4bd829e5fca
+671	775	7446023464586849	Tarea_1_Datos_II.exe	5c0f730c5da760c
+5	662	7446024115887470	CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj	2008c4bd829e5fca
+663	766	7446024122459036	Tarea_1_Datos_II.exe	5c0f730c5da760c
