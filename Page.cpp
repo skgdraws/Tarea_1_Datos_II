@@ -7,6 +7,7 @@
 Page::Page() {
 
     isLoaded = false;
+    pageNumber = 0;
 }
 
 Page::Page(int loadedArray[], int pageNum) {
@@ -24,5 +25,13 @@ Page::Page(int loadedArray[], int pageNum) {
 
 int Page::operator[](int index) {
     return array[index];
+}
+
+bool Page::getLoaded() const {
+    return isLoaded;
+}
+
+int Page::getPageNum() const {
+    return pageNumber;
 }
 

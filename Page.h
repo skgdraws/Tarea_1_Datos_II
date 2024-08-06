@@ -6,8 +6,6 @@
 #define FRAME_H
 
 /*
-█▀▀ █░░ ▄▀█ █▀ █▀ ▀   █▀▀ █▀█ ▄▀█ █▀▄▀█ █▀▀
-█▄▄ █▄▄ █▀█ ▄█ ▄█ ▄   █▀░ █▀▄ █▀█ █░▀░█ ██▄
 */
 class Page {
 
@@ -25,6 +23,9 @@ public:
     Page(int loadedArray[], int pageNum);
 
     int operator[] (int index);
+
+    bool getLoaded() const;
+    int getPageNum() const;
 
 };
 

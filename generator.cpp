@@ -7,8 +7,6 @@
 
 
 /*
-█▀▀ █▀▀ █▄░█ █▀▀ █▀█ ▄▀█ ▀█▀ █▀▀   ▄▀█ █▀█ █▀█ ▄▀█ █▄█
-█▄█ ██▄ █░▀█ ██▄ █▀▄ █▀█ ░█░ ██▄   █▀█ █▀▄ █▀▄ █▀█ ░█░
 */
 void Generator::generateArray(SIZE size) {
 
@@ -25,8 +23,6 @@ void Generator::generateArray(SIZE size) {
 
 
 /*
-█▀█ ▄▀█ █▀█ █▀ █▀▀   █▀ █ ▀█ █▀▀
-█▀▀ █▀█ █▀▄ ▄█ ██▄   ▄█ █ █▄ ██▄
 */
 Generator::SIZE Generator::parseSize(const std::string &sizeStr) {
 
@@ -46,8 +42,6 @@ Generator::SIZE Generator::parseSize(const std::string &sizeStr) {
 
 
 /*
-█▀ ▄▀█ █░█ █▀▀   █▀▀ █ █░░ █▀▀
-▄█ █▀█ ▀▄▀ ██▄   █▀░ █ █▄▄ ██▄
 */
 void Generator::saveFile(const std::string &fileName, SIZE size) {
 
@@ -68,31 +62,26 @@ void Generator::saveFile(const std::string &fileName, SIZE size) {
 
 
 /*
-█▀█ █▀█ █▀█ ░░█ █▀▀ █▀▀ ▀█▀   █▀█ ▄▀█ ▀█▀ █░█
-█▀▀ █▀▄ █▄█ █▄█ ██▄ █▄▄ ░█░   █▀▀ █▀█ ░█░ █▀█
 */
 std::filesystem::path Generator::getProjectPath() {
 
     std::filesystem::path currentPath = std::filesystem::current_path();
 
-    return currentPath;
-    // while (currentPath.has_parent_path()) {
+    while (currentPath.has_parent_path()) {
 
-    //     currentPath = currentPath.parent_path();
+        currentPath = currentPath.parent_path();
 
-    //     // if (std::filesystem::exists(currentPath / "CMakeLists.txt"))
-    //     // {
-    //     //     return currentPath;
-    //     // }
-    // }
+        if (std::filesystem::exists(currentPath / "CMakeLists.txt"))
+        {
+            return currentPath;
+        }
+    }
 
     // throw std::runtime_error("No se pudo encontrar la ruta del proyecto");
 }
 
 
 /*
-█▀█ █▀█ █ █▄░█ ▀█▀   ▄▀█ █▀█ █▀█ ▄▀█ █▄█
-█▀▀ █▀▄ █ █░▀█ ░█░   █▀█ █▀▄ █▀▄ █▀█ ░█░
 */
 void Generator::printArray() {
 
@@ -109,8 +98,6 @@ void Generator::printArray() {
 
 
 /*
-█▀▀ █▀▀ ▀█▀   ▄▀█ █▀█ █▀█ ▄▀█ █▄█
-█▄█ ██▄ ░█░   █▀█ █▀▄ █▀▄ █▀█ ░█░
 */
 const std::vector<int> &Generator::getArray() const {
 
@@ -119,8 +106,6 @@ const std::vector<int> &Generator::getArray() const {
 
 
 /*
-█▀▀ █▀█ █▄░█ █▀ ▀█▀ █▀█ █░█ █▀▀ ▀█▀ █▀█ █▀█
-█▄▄ █▄█ █░▀█ ▄█ ░█░ █▀▄ █▄█ █▄▄ ░█░ █▄█ █▀▄
 */
 Generator::Generator(const std::string &sizeStr, const std::string &fileName) {
 
