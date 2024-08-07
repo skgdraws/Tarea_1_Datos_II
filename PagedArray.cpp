@@ -1,24 +1,5 @@
-//
-// Created by Franco on 5/8/2024.
-//
-
 #include "PagedArray.h"
 
-int* PagedArray::loadFromFile(int pageNum) {
-
-    // Loading Page Logic
-    file.seekg(128 * pageNum * sizeof(int));
-
-    int buffer[128];
-    file.read((char*) &buffer, sizeof(int) * 128);
-
-    for (int i : buffer) {
-
-        std::cout << i << ", ";
-    }
-
-    return buffer;
-}
 
 int PagedArray::checkFreeFrames() {
 
@@ -31,14 +12,31 @@ int PagedArray::checkFreeFrames() {
     else if (!frame4.getLoaded())
         return 4;
     else
-        return 0;
+        return -1;
 }
+
+
+int PagedArray::checkIfPageLoaded(int pageNum) {
+
+    if (frame1.getPageNum() == pageNum)
+        return 1;
+    else if (frame2.getPageNum() == pageNum)
+        return 2;
+    else if (frame3.getPageNum() == pageNum)
+        return 3;
+    else if (frame4.getPageNum() == pageNum)
+        return 4;
+    else
+        return -1;
+}
+
 
 void PagedArray::loadToFrame(int frameNum, int pageNum) {
 
     // Loading file
-    file.seekg(128 * pageNum * sizeof(int));
     int buffer[128];
+
+    file.seekg(128 * pageNum * sizeof(int));
     file.read((char*) &buffer, sizeof(int) * 128);
 
     switch (frameNum) {
@@ -67,25 +65,11 @@ void PagedArray::loadToFrame(int frameNum, int pageNum) {
     }
 }
 
-int PagedArray::checkIfPageLoaded(int pageNum) {
-
-    // ACTUALLY GIVES YOU THE FUCKING NUMBER :SKULL:
-    if (frame1.getPageNum() == pageNum)
-        return 1;
-    else if (frame2.getPageNum() == pageNum)
-        return 2;
-    else if (frame3.getPageNum() == pageNum)
-        return 3;
-    else if (frame4.getPageNum() == pageNum)
-        return 4;
-    else
-        return -1;
-}
 
 PagedArray::PagedArray(const std::string &fileDir) {
 
     // Open File
-    file.open(fileDir, std::ifstream::in);
+    file.open(fileDir, std::ios::in | std::ios::out);
 
     // Initializing page stats
     pageFault = 0;
@@ -99,6 +83,7 @@ PagedArray::PagedArray(const std::string &fileDir) {
 
 }
 
+
 int PagedArray::operator[](int index) {
 
     // Calculating Index and Page
@@ -109,10 +94,14 @@ int PagedArray::operator[](int index) {
 
     if (pageID < 0) {
 
+        pageFault++;
+
         // Check Free Frames
         const int availableFrame = checkFreeFrames();
         loadToFrame(availableFrame, pageNum);
     }
+    else
+        pageHit++;
 
     // ACTUALLY GIVES YOU THE FUCKING NUMBER :SKULL:
     if (frame1.getPageNum() == pageNum)
@@ -127,15 +116,6 @@ int PagedArray::operator[](int index) {
 
 }
 
-/*void PagedArray::saveFile() {
-
-    std::ofstream file(filePath, std::ios::binary);
-    if (!file) {
-
-        throw std::runtime_error("No se pudo abrir el archivo para escritura");
-    }
-
-    file.write (reinterpret_cast<const char *>(rng_array.data()), rng_array.size() * sizeof(int));
-
-    file.close();
-}*/
+void PagedArray::printInfo() {
+    std::cout << "Page hit = " << pageHit << std::endl <<  "Page fault = " << pageFault << std::endl;
+}

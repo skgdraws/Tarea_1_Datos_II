@@ -107,7 +107,7 @@ const std::vector<int> &Generator::getArray() const {
 
 /*
 */
-Generator::Generator(const std::string &sizeStr, const std::string &fileName) {
+Generator::Generator(const std::string &sizeStr, const std::string &fileName, const std::string &path) {
 
     // Generating Random Seed
     std::srand(std::time(nullptr));
@@ -117,3 +117,23 @@ Generator::Generator(const std::string &sizeStr, const std::string &fileName) {
     generateArray(size);
     saveFile(fileName, size);
 }
+
+int main(int argc, char *argv[]) {
+
+    std::cout << "You have entered " << argc
+         << " arguments:" << "\n";
+
+    for (int i = 0; i < argc; ++i)
+        std::cout << argv[i] << "\n";
+
+
+    //
+    char* sizeOfFile = argv[2];
+    char* output = argv[4];
+
+    Generator generator(sizeOfFile, "Random Number - " + (std::string&) sizeOfFile);
+
+    return 0;
+}
+
+
