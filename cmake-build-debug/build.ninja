@@ -67,6 +67,12 @@ build CMakeFiles/Tarea_1_Datos_II.dir/Page.cpp.obj: CXX_COMPILER__Tarea_1_Datos_
   OBJECT_DIR = CMakeFiles\Tarea_1_Datos_II.dir
   OBJECT_FILE_DIR = CMakeFiles\Tarea_1_Datos_II.dir
 
+build CMakeFiles/Tarea_1_Datos_II.dir/sort.cpp.obj: CXX_COMPILER__Tarea_1_Datos_II_unscanned_Debug C$:/Users/Franco/CLionProjects/Tarea$ 1$ Datos$ II/sort.cpp || cmake_object_order_depends_target_Tarea_1_Datos_II
+  DEP_FILE = CMakeFiles\Tarea_1_Datos_II.dir\sort.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Tarea_1_Datos_II.dir
+  OBJECT_FILE_DIR = CMakeFiles\Tarea_1_Datos_II.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Tarea_1_Datos_II
@@ -75,7 +81,7 @@ build CMakeFiles/Tarea_1_Datos_II.dir/Page.cpp.obj: CXX_COMPILER__Tarea_1_Datos_
 #############################################
 # Link the executable Tarea_1_Datos_II.exe
 
-build Tarea_1_Datos_II.exe: CXX_EXECUTABLE_LINKER__Tarea_1_Datos_II_Debug CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj CMakeFiles/Tarea_1_Datos_II.dir/PagedArray.cpp.obj CMakeFiles/Tarea_1_Datos_II.dir/Page.cpp.obj
+build Tarea_1_Datos_II.exe: CXX_EXECUTABLE_LINKER__Tarea_1_Datos_II_Debug CMakeFiles/Tarea_1_Datos_II.dir/generator.cpp.obj CMakeFiles/Tarea_1_Datos_II.dir/PagedArray.cpp.obj CMakeFiles/Tarea_1_Datos_II.dir/Page.cpp.obj CMakeFiles/Tarea_1_Datos_II.dir/sort.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Tarea_1_Datos_II.dir

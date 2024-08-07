@@ -9,4 +9,5 @@ add_executable(Tarea_1_Datos_II
         PagedArray.cpp
         PagedArray.h
         Page.cpp
-        Page.h)
+        Page.h
+        sort.cpp)
